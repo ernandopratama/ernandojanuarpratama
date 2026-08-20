@@ -1,13 +1,49 @@
 ---
 deployment:
   tasks:
-    - export APPPATH=/home/ernando2/ernando-portfolio-app
-    - export DEPLOYPATH=/home/ernando2/public_html
-    - /bin/mkdir -p $APPPATH
-    - /usr/bin/rsync -a --delete --exclude=public --exclude=.git --exclude=.env /home/ernando2/repositories/ernandojanuarpratama/ $APPPATH/
-    - /bin/cp -R /home/ernando2/repositories/ernandojanuarpratama/public/* $DEPLOYPATH/
-    - /bin/cp $APPPATH/public/.htaccess $DEPLOYPATH/.htaccess 2>/dev/null || true
-    - /bin/sed -i "s#__DIR__.'/../storage/framework/maintenance.php'#'$APPPATH/storage/framework/maintenance.php'#" $DEPLOYPATH/index.php
-    - /bin/sed -i "s#__DIR__.'/../vendor/autoload.php'#'$APPPATH/vendor/autoload.php'#" $DEPLOYPATH/index.php
-    - /bin/sed -i "s#__DIR__.'/../bootstrap/app.php'#'$APPPATH/bootstrap/app.php'#" $DEPLOYPATH/index.php
-    - /bin/chmod -R 775 $APPPATH/storage $APPPATH/bootstrap/cache
+    - export DEPLOYPATH=/home/ernando2/public_html/
+
+    # ==========================================
+    # Laravel Application
+    # ==========================================
+
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R bootstrap $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R routes $DEPLOYPATH
+    - /bin/cp -R tests $DEPLOYPATH
+
+    # ==========================================
+    # Laravel Root Files
+    # ==========================================
+
+    - /bin/cp artisan $DEPLOYPATH
+    - /bin/cp composer.json $DEPLOYPATH
+    - /bin/cp composer.lock $DEPLOYPATH
+    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp package-lock.json $DEPLOYPATH
+    - /bin/cp phpunit.xml $DEPLOYPATH
+    - /bin/cp vite.config.js $DEPLOYPATH
+    - /bin/cp README.md $DEPLOYPATH
+
+    # ==========================================
+    # Public Files
+    # IMPORTANT:
+    # Do NOT copy public/storage (symlink)
+    # Do NOT copy public/build (compiled assets, upload manual after npm run build)
+    # ==========================================
+
+    - /bin/mkdir -p $DEPLOYPATH/public
+    - /bin/cp public/.htaccess $DEPLOYPATH/public/
+    - /bin/cp public/index.php $DEPLOYPATH/public/
+    - /bin/cp public/robots.txt $DEPLOYPATH/public/
+    - /bin/cp public/favicon.ico $DEPLOYPATH/public/
+    - /bin/cp public/og-image.png $DEPLOYPATH/public/
+
+    # ==========================================
+    # Permissions
+    # ==========================================
+
+    - /bin/chmod -R 775 $DEPLOYPATH/storage $DEPLOYPATH/bootstrap/cache
