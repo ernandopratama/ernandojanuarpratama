@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Console - Skills Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c7c8b4",
+                        "on-primary-fixed-variant": "#2e4868",
+                        "tertiary": "#c7c8b4",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0e10",
+                        "on-primary-container": "#7791b4",
+                        "on-tertiary-container": "#8f907e",
+                        "outline": "#8d9198",
+                        "tertiary-container": "#27291c",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#f0e1c6",
+                        "on-tertiary-fixed-variant": "#464839",
+                        "on-background": "#e3e2e5",
+                        "surface-container-low": "#1a1c1e",
+                        "surface": "#121316",
+                        "inverse-on-surface": "#2f3033",
+                        "primary": "#aec8ee",
+                        "surface-variant": "#343537",
+                        "inverse-primary": "#466081",
+                        "outline-variant": "#43474d",
+                        "surface-dim": "#121316",
+                        "secondary": "#d3c5ab",
+                        "on-secondary": "#382f1d",
+                        "secondary-fixed-dim": "#d3c5ab",
+                        "on-primary": "#153250",
+                        "on-secondary-fixed-variant": "#4f4632",
+                        "inverse-surface": "#e3e2e5",
+                        "on-surface": "#e3e2e5",
+                        "primary-fixed": "#d2e4ff",
+                        "on-primary-fixed": "#001c37",
+                        "surface-container": "#1e2022",
+                        "primary-container": "#0a2947",
+                        "primary-fixed-dim": "#aec8ee",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#aec8ee",
+                        "secondary-container": "#4f4632",
+                        "on-secondary-fixed": "#221b0a",
+                        "on-tertiary-fixed": "#1b1d10",
+                        "surface-container-high": "#292a2c",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#343537",
+                        "on-tertiary": "#2f3224",
+                        "on-secondary-container": "#c1b49a",
+                        "tertiary-fixed": "#e3e4cf",
+                        "background": "#121316",
+                        "on-surface-variant": "#c3c6ce",
+                        "surface-bright": "#38393c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "meta-technical": ["JetBrains Mono"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "meta-technical": ["14px", { "lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle grid background for the content area */
+        .tech-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(211, 197, 171, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(211, 197, 171, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-primary-container dark:bg-primary-container text-primary dark:text-primary font-meta-technical text-meta-technical docked left-0 h-screen w-64 border-r border-outline-variant/20 flat no shadows flex flex-col p-gutter flex-shrink-0 z-10 transition-transform duration-300 transform -translate-x-full md:translate-x-0 absolute md:relative">
+<!-- Header -->
+<div class="mb-8 flex flex-col items-center border-b border-outline-variant/20 pb-6">
+<div class="w-16 h-16 rounded-full border border-secondary p-1 mb-4 flex-shrink-0">
+<img alt="Admin Avatar" class="w-full h-full object-cover rounded-full" data-alt="A close-up, professional avatar portrait of a system administrator. The image features a modern, clean aesthetic with deep navy shadows and warm, soft lighting. The subject is subtle, conveying authority and technical competence, set against a dark background with a very faint, precise grid pattern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpgDeBOeQugJHO7ybfS0yMT2Gn-lXT8E4qVsECROq9cTR9LMM4g80VqiFDMXub_xo77-joEwznDT5SCPKe19oi2HIYkRzU2vM0wvy622wVXOj41k0REHxu2qQf6467S_JeAd98eqltDDwaSx90KxctaWbl-4A6cdom8YyJzVHX-Uy9Hwq2b1MEdpdKkP42hgG8Znx_fS5Lrbfss0YBrwJAD3bouAoSyxBN35uTu5-SV-3-bVMDK9HDgw"/>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-1 text-center">Admin Console</h2>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-secondary text-center">System Management</p>
+</div>
+<!-- CTA -->
+<button class="w-full mb-8 bg-secondary text-on-secondary font-label-caps text-label-caps uppercase py-3 px-4 rounded flex justify-center items-center gap-2 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Project
+        </button>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-2 overflow-y-auto">
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">person</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">timeline</span>
+<span>Experience</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">grid_view</span>
+<span>Projects</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-unit bg-secondary-container text-on-secondary-container rounded-lg p-3 Active: scale-95 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] fill">code</span>
+<span>Skills</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<!-- Footer / Logout -->
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:text-error hover:bg-error-container/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-surface relative tech-grid">
+<!-- Mobile Header (Hidden on Desktop) -->
+<header class="md:hidden bg-surface-container flex justify-between items-center p-4 border-b border-outline-variant/20 z-20 sticky top-0">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">EJ Console</div>
+<button class="text-on-surface-variant hover:text-primary" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop w-full max-w-container-max mx-auto relative z-0">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+<div>
+<span class="font-meta-technical text-meta-technical text-secondary mb-2 block">// 04. SKILLS_MANAGEMENT</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">Technical Skills</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage and organize your technical proficiencies. Updates here directly reflect on the public portfolio view.</p>
+</div>
+<button class="bg-secondary text-on-secondary font-label-caps text-label-caps uppercase py-3 px-6 rounded border border-secondary hover:bg-transparent hover:text-secondary transition-all flex items-center gap-2 group flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>Add Skill</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">chevron_right</span>
+</button>
+</div>
+<!-- Toolbar (Search & Filter) -->
+<div class="bg-surface-container border border-outline-variant/30 rounded-lg p-4 mb-8 flex flex-col md:flex-row gap-4 justify-between items-center shadow-sm">
+<!-- Search -->
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface border-b border-outline-variant/50 focus:border-secondary focus:ring-0 text-on-background font-meta-technical text-meta-technical pl-10 pr-4 py-2 placeholder-on-surface-variant/50 transition-colors focus:bg-surface-container-high outline-none" placeholder="Search skills..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="flex gap-4 w-full md:w-auto">
+<div class="relative flex-1 md:w-48">
+<select class="w-full bg-surface border-b border-outline-variant/50 focus:border-secondary focus:ring-0 text-on-background font-meta-technical text-meta-technical pl-4 pr-10 py-2 appearance-none outline-none cursor-pointer">
+<option value="">All Categories</option>
+<option value="frontend">Frontend</option>
+<option value="backend">Backend</option>
+<option value="design">Design</option>
+<option value="tools">Tools &amp; DevOps</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Data Table (Bento / Card List Hybrid approach for modern feel) -->
+<div class="space-y-4">
+<!-- Table Header (Hidden on small screens) -->
+<div class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/20">
+<div class="col-span-3">Category</div>
+<div class="col-span-4">Skill Name</div>
+<div class="col-span-3">Proficiency Level</div>
+<div class="col-span-1 text-center">Order</div>
+<div class="col-span-1 text-right">Actions</div>
+</div>
+<!-- Row Items -->
+<!-- Item 1 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors border border-outline-variant/20 hover:border-outline-variant/50 rounded-lg p-4 md:px-6 md:py-4 flex flex-col md:grid md:grid-cols-12 gap-4 items-start md:items-center group">
+<div class="col-span-3 font-meta-technical text-meta-technical text-secondary flex items-center gap-2 w-full">
+<span class="material-symbols-outlined text-[16px] opacity-70">terminal</span>
+                        Frontend
+                    </div>
+<div class="col-span-4 font-headline-sm text-[18px] md:text-headline-sm text-on-background font-semibold w-full">
+                        Vue.js
+                    </div>
+<div class="col-span-3 w-full flex items-center gap-3">
+<div class="flex-1 h-1 bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%]"></div>
+</div>
+<span class="font-meta-technical text-[12px] text-on-surface-variant min-w-[3ch]">90%</span>
+</div>
+<div class="col-span-1 w-full md:text-center font-meta-technical text-meta-technical text-on-surface-variant">
+<span class="md:hidden text-[12px] uppercase opacity-50 mr-2">Order:</span>
+                        01
+                    </div>
+<div class="col-span-1 w-full flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors border border-outline-variant/20 hover:border-outline-variant/50 rounded-lg p-4 md:px-6 md:py-4 flex flex-col md:grid md:grid-cols-12 gap-4 items-start md:items-center group">
+<div class="col-span-3 font-meta-technical text-meta-technical text-secondary flex items-center gap-2 w-full">
+<span class="material-symbols-outlined text-[16px] opacity-70">terminal</span>
+                        Frontend
+                    </div>
+<div class="col-span-4 font-headline-sm text-[18px] md:text-headline-sm text-on-background font-semibold w-full">
+                        Tailwind CSS
+                    </div>
+<div class="col-span-3 w-full flex items-center gap-3">
+<div class="flex-1 h-1 bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[95%]"></div>
+</div>
+<span class="font-meta-technical text-[12px] text-on-surface-variant min-w-[3ch]">95%</span>
+</div>
+<div class="col-span-1 w-full md:text-center font-meta-technical text-meta-technical text-on-surface-variant">
+<span class="md:hidden text-[12px] uppercase opacity-50 mr-2">Order:</span>
+                        02
+                    </div>
+<div class="col-span-1 w-full flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors border border-outline-variant/20 hover:border-outline-variant/50 rounded-lg p-4 md:px-6 md:py-4 flex flex-col md:grid md:grid-cols-12 gap-4 items-start md:items-center group">
+<div class="col-span-3 font-meta-technical text-meta-technical text-secondary flex items-center gap-2 w-full">
+<span class="material-symbols-outlined text-[16px] opacity-70">database</span>
+                        Backend
+                    </div>
+<div class="col-span-4 font-headline-sm text-[18px] md:text-headline-sm text-on-background font-semibold w-full">
+                        Laravel
+                    </div>
+<div class="col-span-3 w-full flex items-center gap-3">
+<div class="flex-1 h-1 bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="font-meta-technical text-[12px] text-on-surface-variant min-w-[3ch]">85%</span>
+</div>
+<div class="col-span-1 w-full md:text-center font-meta-technical text-meta-technical text-on-surface-variant">
+<span class="md:hidden text-[12px] uppercase opacity-50 mr-2">Order:</span>
+                        03
+                    </div>
+<div class="col-span-1 w-full flex justify-end gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Empty State (Hidden currently, but good for structure) -->
+<!--
+                <div class="py-12 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant/30 rounded-lg bg-surface-container/50">
+                    <span class="material-symbols-outlined text-[48px] text-outline-variant mb-4">folder_off</span>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-2">No skills found.</p>
+                    <p class="font-meta-technical text-meta-technical text-outline max-w-sm">Adjust your filters or add a new skill to populate this list.</p>
+                </div>
+                -->
+</div>
+<!-- Pagination area -->
+<div class="mt-8 flex justify-between items-center border-t border-outline-variant/20 pt-6">
+<p class="font-meta-technical text-meta-technical text-on-surface-variant">Showing 1-3 of 24 entries</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded border border-secondary bg-secondary/10 flex items-center justify-center text-secondary transition-colors">
+<span class="font-meta-technical text-[12px]">1</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors">
+<span class="font-meta-technical text-[12px]">2</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors">
+<span class="font-meta-technical text-[12px]">...</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Spacer for bottom breathing room -->
+<div class="h-section-gap"></div>
+</div>
+</main>
+<script>
+        // Simple mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const sidebar = document.querySelector('aside');
+            if(sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+</body></html>

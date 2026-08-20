@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Console - Social Links</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#c7c8b4",
+                      "on-primary-fixed-variant": "#2e4868",
+                      "tertiary": "#c7c8b4",
+                      "error-container": "#93000a",
+                      "surface-container-lowest": "#0d0e10",
+                      "on-primary-container": "#7791b4",
+                      "on-tertiary-container": "#8f907e",
+                      "outline": "#8d9198",
+                      "tertiary-container": "#27291c",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#f0e1c6",
+                      "on-tertiary-fixed-variant": "#464839",
+                      "on-background": "#e3e2e5",
+                      "surface-container-low": "#1a1c1e",
+                      "surface": "#121316",
+                      "inverse-on-surface": "#2f3033",
+                      "primary": "#aec8ee",
+                      "surface-variant": "#343537",
+                      "inverse-primary": "#466081",
+                      "outline-variant": "#43474d",
+                      "surface-dim": "#121316",
+                      "secondary": "#d3c5ab",
+                      "on-secondary": "#382f1d",
+                      "secondary-fixed-dim": "#d3c5ab",
+                      "on-primary": "#153250",
+                      "on-secondary-fixed-variant": "#4f4632",
+                      "inverse-surface": "#e3e2e5",
+                      "on-surface": "#e3e2e5",
+                      "primary-fixed": "#d2e4ff",
+                      "on-primary-fixed": "#001c37",
+                      "surface-container": "#1e2022",
+                      "primary-container": "#0a2947",
+                      "primary-fixed-dim": "#aec8ee",
+                      "on-error-container": "#ffdad6",
+                      "surface-tint": "#aec8ee",
+                      "secondary-container": "#4f4632",
+                      "on-secondary-fixed": "#221b0a",
+                      "on-tertiary-fixed": "#1b1d10",
+                      "surface-container-high": "#292a2c",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#343537",
+                      "on-tertiary": "#2f3224",
+                      "on-secondary-container": "#c1b49a",
+                      "tertiary-fixed": "#e3e4cf",
+                      "background": "#121316",
+                      "on-surface-variant": "#c3c6ce",
+                      "surface-bright": "#38393c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "meta-technical": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "meta-technical": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "72px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+          .tech-grid {
+              background-image: 
+                  linear-gradient(to right, rgba(141, 145, 152, 0.05) 1px, transparent 1px),
+                  linear-gradient(to bottom, rgba(141, 145, 152, 0.05) 1px, transparent 1px);
+              background-size: 40px 40px;
+          }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex tech-grid">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex flex-col h-screen w-64 bg-surface-container border-r border-outline-variant/20 docked left-0 sticky top-0 p-gutter">
+<div class="mb-12">
+<h1 class="font-label-caps text-label-caps uppercase tracking-widest text-secondary mb-2">Admin Console</h1>
+<div class="flex items-center gap-3">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full border border-outline-variant/50 object-cover" data-alt="A small, professional headshot avatar of an administrator in a dark, minimalist setting, lit with subtle cinematic lighting, suggesting a highly technical and modern digital workspace. High quality, crisp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATHPiiRlQD3Pl-vbNInsvAMND-b3RkYvIW82TxpnrD2o19ibDNHbSSdTCtGoCai_ghrU4YvLPB2bunusX2AUJg2gM0EGw7cjv1tRZgcbbBaBL0TWG72IsUCLFIc2bnWqxw70HVyJEpoL5zQZhfJw__dQeUYmHOlwhZgwiI_YSITARUxZowce_AOuBZ86BlmS9VPkLMQ7FVI6bfFK7ytBR-L2SgncZsQm7gSBPbOXLwfTCyGsX_MBHwbg"/>
+<div>
+<div class="font-headline-sm text-sm font-semibold text-primary">System Admin</div>
+<div class="font-meta-technical text-xs text-on-surface-variant">System Management</div>
+</div>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-2">
+<!-- Navigation Links -->
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-meta-technical text-meta-technical">Profile</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+<span class="font-meta-technical text-meta-technical">Experience</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-meta-technical text-meta-technical">Projects</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-meta-technical text-meta-technical">Skills</span>
+</a>
+<a class="flex items-center gap-unit bg-secondary-container text-on-secondary-container rounded-lg p-3 Active: scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-meta-technical text-meta-technical">Settings</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg pl-8 mt-2" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+<span class="font-meta-technical text-meta-technical text-sm text-primary">Social Links</span>
+</a>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<button class="w-full flex items-center justify-center gap-2 bg-secondary text-on-secondary py-2 px-4 rounded hover:bg-secondary-fixed transition-colors font-meta-technical text-meta-technical mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Project
+            </button>
+<a class="flex items-center gap-unit text-on-surface-variant p-3 hover:bg-surface-bright transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-meta-technical text-meta-technical">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col min-h-screen max-w-container-max mx-auto w-full">
+<!-- Mobile Top Nav Bar (Simplified) -->
+<div class="md:hidden flex justify-between items-center w-full px-margin-mobile h-20 bg-surface-dim border-b border-outline-variant/20 sticky top-0 z-50">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary">Admin Console</span>
+<button class="text-on-surface-variant"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-12 flex-grow">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-outline-variant/20 pb-6 gap-6">
+<div>
+<div class="font-meta-technical text-meta-technical text-secondary mb-2">// 05.1</div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Social Links</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">Manage external connections and platform routing. Drag to reorder, edit URLs, or add new platform endpoints.</p>
+</div>
+<button class="flex items-center gap-2 border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary px-6 py-2 rounded-sm transition-all font-meta-technical text-meta-technical whitespace-nowrap bg-surface-container">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Add Link
+                </button>
+</div>
+<!-- Data Table / List -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-lg overflow-hidden shadow-lg shadow-black/20">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/40 bg-surface-container text-on-surface-variant font-meta-technical text-xs tracking-wider uppercase">
+<th class="p-4 w-12 text-center"></th> <!-- Drag handle -->
+<th class="p-4 font-medium">Platform</th>
+<th class="p-4 font-medium">Endpoint URL</th>
+<th class="p-4 font-medium text-center w-24">Visible</th>
+<th class="p-4 font-medium text-right w-32">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-md">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="p-4 text-center cursor-move text-outline group-hover:text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant/50 flex items-center justify-center text-primary">
+<!-- using generic link icon as placeholder for brand icons -->
+<span class="material-symbols-outlined text-sm">link</span>
+</div>
+<div>
+<div class="font-medium text-on-background">LinkedIn</div>
+<div class="text-xs text-on-surface-variant font-meta-technical">Professional Network</div>
+</div>
+</div>
+</td>
+<td class="p-4 font-meta-technical text-sm text-primary truncate max-w-[200px] md:max-w-md">
+<a class="hover:underline" href="#">https://linkedin.com/in/ejdesign</a>
+</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-secondary text-lg">visibility</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="p-4 text-center cursor-move text-outline group-hover:text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">link</span>
+</div>
+<div>
+<div class="font-medium text-on-background">GitHub</div>
+<div class="text-xs text-on-surface-variant font-meta-technical">Code Repository</div>
+</div>
+</div>
+</td>
+<td class="p-4 font-meta-technical text-sm text-primary truncate max-w-[200px] md:max-w-md">
+<a class="hover:underline" href="#">https://github.com/ej-dev</a>
+</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-secondary text-lg">visibility</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="p-4 text-center cursor-move text-outline group-hover:text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant/50 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">link</span>
+</div>
+<div>
+<div class="font-medium text-on-surface-variant">Twitter / X</div>
+<div class="text-xs text-outline font-meta-technical">Microblogging</div>
+</div>
+</div>
+</td>
+<td class="p-4 font-meta-technical text-sm text-on-surface-variant truncate max-w-[200px] md:max-w-md">
+<a class="hover:underline line-through opacity-70" href="#">https://twitter.com/ej_design</a>
+</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-outline text-lg">visibility_off</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Empty State placeholder -->
+<div class="p-4 border-t border-outline-variant/20 bg-surface-container text-xs text-on-surface-variant font-meta-technical flex justify-between items-center">
+<span>3 Total Links Active</span>
+<span>Sort Order: Manual</span>
+</div>
+</div>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="w-full bg-surface-dim border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-gutter px-margin-desktop max-w-container-max mx-auto gap-4">
+<div class="font-label-caps text-label-caps text-primary">
+                    © 2024 EJ Design. All rights reserved.
+                </div>
+<div class="flex gap-6">
+<a class="font-meta-technical text-meta-technical text-on-surface-variant hover:text-secondary transition-colors" href="#">Legal</a>
+<a class="font-meta-technical text-meta-technical text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy</a>
+<a class="font-meta-technical text-meta-technical text-on-surface-variant hover:text-secondary transition-colors" href="#">GitHub</a>
+<a class="font-meta-technical text-meta-technical text-on-surface-variant hover:text-secondary transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

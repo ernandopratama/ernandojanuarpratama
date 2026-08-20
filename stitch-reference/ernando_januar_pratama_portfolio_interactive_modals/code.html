@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ernando Januar Pratama - Portfolio - Enhanced Motion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1b1d10",
+                        "inverse-on-surface": "#2f3033",
+                        "on-secondary-container": "#c1b49a",
+                        "surface-bright": "#38393c",
+                        "inverse-primary": "#466081",
+                        "surface-container-lowest": "#0d0e10",
+                        "surface-container-low": "#1a1c1e",
+                        "background": "#121316",
+                        "secondary-fixed": "#f0e1c6",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#c7c8b4",
+                        "surface-container-highest": "#343537",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "surface": "#121316",
+                        "on-primary-container": "#7791b4",
+                        "secondary-fixed-dim": "#d3c5ab",
+                        "on-primary": "#153250",
+                        "tertiary-fixed-dim": "#c7c8b4",
+                        "on-secondary": "#382f1d",
+                        "on-secondary-fixed-variant": "#4f4632",
+                        "outline": "#8d9198",
+                        "on-surface": "#e3e2e5",
+                        "surface-tint": "#aec8ee",
+                        "primary-fixed": "#d2e4ff",
+                        "on-surface-variant": "#c3c6ce",
+                        "on-primary-fixed-variant": "#2e4868",
+                        "tertiary-fixed": "#e3e4cf",
+                        "secondary-container": "#4f4632",
+                        "primary-container": "#0a2947",
+                        "tertiary-container": "#27291c",
+                        "on-tertiary": "#2f3224",
+                        "outline-variant": "#43474d",
+                        "secondary": "#d3c5ab",
+                        "primary": "#aec8ee",
+                        "on-primary-fixed": "#001c37",
+                        "on-tertiary-fixed-variant": "#464839",
+                        "surface-container-high": "#292a2c",
+                        "on-secondary-fixed": "#221b0a",
+                        "on-background": "#e3e2e5",
+                        "inverse-surface": "#e3e2e5",
+                        "surface-variant": "#343537",
+                        "surface-container": "#1e2022",
+                        "surface-dim": "#121316",
+                        "primary-fixed-dim": "#aec8ee",
+                        "on-tertiary-container": "#8f907e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "meta-technical": ["JetBrains Mono"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "meta-technical": ["14px", { "lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A2947; color: #e3e2e5; }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(141, 145, 152, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(141, 145, 152, 0.05) 1px, transparent 1px);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes premiumEntrance {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate {
+            opacity: 0;
+            animation: premiumEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .hero-delay-1 { animation-delay: 0.1s; }
+        .hero-delay-2 { animation-delay: 0.3s; }
+        .hero-delay-3 { animation-delay: 0.5s; }
+        .hero-delay-4 { animation-delay: 0.7s; }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0A2947]/95 border-b border-outline-variant/20 transition-all duration-200 backdrop-blur-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-headline-sm text-headline-sm font-bold text-[#F3E4C9] tracking-tighter hover:opacity-80 transition-opacity" href="#">EP.</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#F3E4C9]/70 font-medium hover:text-[#F3E4C9] transition-colors duration-300" href="#about">About</a>
+<a class="text-[#F3E4C9]/70 font-medium hover:text-[#F3E4C9] transition-colors duration-300" href="#experience">Experience</a>
+<a class="text-[#F3E4C9]/70 font-medium hover:text-[#F3E4C9] transition-colors duration-300" href="#work">Work</a>
+<a class="text-[#F3E4C9]/70 font-medium hover:text-[#F3E4C9] transition-colors duration-300" href="#contact">Contact</a>
+<a class="font-label-caps text-label-caps bg-[#F3E4C9] text-[#0A2947] px-6 py-2 rounded-DEFAULT hover:opacity-90 transition-opacity duration-300 flex items-center gap-2" href="#contact">
+                    Connect <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Mobile Menu Toggle (Simplified) -->
+<button class="md:hidden text-[#F3E4C9]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 pb-section-gap px-margin-mobile md:px-margin-desktop w-full overflow-hidden" id="hero" style="background-color: #F3E4C9; color: #153250;">
+<div class="absolute inset-0 grid-bg opacity-30"></div>
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter relative z-10">
+<div class="lg:col-span-7 flex flex-col justify-center space-y-8">
+<div class="inline-flex items-center gap-3 hero-animate hero-delay-1">
+<div class="w-2 h-2 rounded-full" style="background-color: #8B5E3C;"></div>
+<span class="font-meta-technical text-meta-technical" style="color: #8B5E3C; letter-spacing: 0.1em;">AVAILABLE FOR OPPORTUNITIES</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-[#0A2947] max-w-3xl hero-animate hero-delay-2">
+                        Building Digital Experiences That Solve Real Problems.
+                    </h1>
+<p class="font-body-lg text-body-lg max-w-2xl text-[#153250]/80 hero-animate hero-delay-3">
+                        I'm Ernando Januar Pratama, an IT professional and software developer focused on building reliable digital products, web applications, and technology solutions.
+                    </p>
+<div class="pt-4 flex gap-4 hero-animate hero-delay-4">
+<a class="font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT transition-all duration-300 flex items-center gap-2 hover:opacity-90" href="#contact" style="background-color: #0A2947; color: #F3E4C9;">
+                            Let's Talk <span class="material-symbols-outlined">north_east</span>
+</a>
+<a class="font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT border transition-all duration-300 hover:bg-[#0A2947]/5" href="#work" style="border-color: rgba(10, 41, 71, 0.2); color: #0A2947;">
+                            View Work
+                        </a>
+</div>
+</div>
+<div class="lg:col-span-5 relative hidden lg:flex justify-center items-center hero-animate hero-delay-3">
+<div class="relative w-full aspect-[4/5] border p-4" style="border-color: rgba(10, 41, 71, 0.1);">
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2" style="border-color: #8B5E3C;"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2" style="border-color: #8B5E3C;"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2" style="border-color: #8B5E3C;"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2" style="border-color: #8B5E3C;"></div>
+<div class="w-full h-full relative overflow-hidden bg-[#E5D5BA] flex items-center justify-center">
+<span class="font-display-lg text-[120px] font-bold text-[#F3E4C9] absolute select-none">EJ</span>
+<div class="absolute bottom-4 left-4 font-meta-technical text-[10px] text-[#0A2947]/50">
+                                SYS.INIT: 2025<br/>LOC: INDONESIA
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full overflow-hidden" id="about" style="background-color: #D3D4C0; color: #0A2947;">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="reveal-on-scroll">
+<span class="font-meta-technical text-meta-technical mb-4 block" style="color: #8B5E3C;">01 / ABOUT</span>
+<h2 class="font-headline-md text-headline-md mb-6">Bridging the gap between design and robust engineering.</h2>
+<p class="font-body-lg text-body-lg mb-6 opacity-80">
+                        With over 5 years of experience in software development, I specialize in creating scalable web applications and seamless digital experiences. My approach combines technical precision with an eye for design architecture.
+                    </p>
+<p class="font-body-lg text-body-lg opacity-80">
+                        I believe in writing clean, maintainable code and building systems that stand the test of time while remaining adaptable to future needs.
+                    </p>
+</div>
+<div class="reveal-on-scroll grid grid-cols-2 gap-4" style="transition-delay: 200ms;">
+<div class="p-6 border rounded-DEFAULT" style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.2);">
+<h4 class="font-headline-sm font-bold mb-2">Backend</h4>
+<p class="opacity-80">Node.js, Python, PostgreSQL, Redis, Docker</p>
+</div>
+<div class="p-6 border rounded-DEFAULT" style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.2);">
+<h4 class="font-headline-sm font-bold mb-2">Frontend</h4>
+<p class="opacity-80">React, Vue, TypeScript, Tailwind CSS, WebGL</p>
+</div>
+<div class="p-6 border rounded-DEFAULT" style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.2);">
+<h4 class="font-headline-sm font-bold mb-2">Design</h4>
+<p class="opacity-80">Figma, UI/UX Systems, Prototyping, Wireframing</p>
+</div>
+<div class="p-6 border rounded-DEFAULT" style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.2);">
+<h4 class="font-headline-sm font-bold mb-2">Cloud</h4>
+<p class="opacity-80">AWS, GCP, CI/CD Pipelines, Serverless</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full overflow-hidden" id="experience" style="background-color: #0A2947; color: #F3E4C9;">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12">
+<span class="font-meta-technical text-meta-technical mb-4 block" style="color: #D3D4C0;">02 / EXPERIENCE</span>
+<h2 class="font-headline-md text-headline-md">Career Journey</h2>
+</div>
+<div class="relative border-l ml-4 md:ml-6 space-y-12" style="border-color: rgba(243, 228, 201, 0.2);">
+<div class="reveal-on-scroll pl-8 relative project-card">
+<div class="absolute w-4 h-4 rounded-full -left-[8.5px] top-1" style="background-color: #D3D4C0;"></div>
+<h3 class="font-headline-sm text-headline-sm">Senior Software Engineer</h3>
+<p class="font-meta-technical text-meta-technical mb-3" style="color: #D3D4C0;">Tech Corp • 2022 - Present</p>
+<p class="max-w-2xl opacity-80">Leading the development of core infrastructure and user-facing applications. Architecting scalable solutions and mentoring junior developers.</p>
+</div>
+<div class="reveal-on-scroll pl-8 relative project-card">
+<div class="absolute w-4 h-4 rounded-full -left-[8.5px] top-1" style="background-color: rgba(243, 228, 201, 0.3);"></div>
+<h3 class="font-headline-sm text-headline-sm">Software Developer</h3>
+<p class="font-meta-technical text-meta-technical mb-3" style="color: #D3D4C0;">Digital Agency • 2019 - 2022</p>
+<p class="max-w-2xl opacity-80">Built and maintained multiple client websites and web applications. Collaborated closely with design and product teams to deliver high-quality digital experiences.</p>
+</div>
+<div class="reveal-on-scroll pl-8 relative project-card">
+<div class="absolute w-4 h-4 rounded-full -left-[8.5px] top-1" style="background-color: rgba(243, 228, 201, 0.3);"></div>
+<h3 class="font-headline-sm text-headline-sm">Junior Web Developer</h3>
+<p class="font-meta-technical text-meta-technical mb-3" style="color: #D3D4C0;">Startup Inc • 2018 - 2019</p>
+<p class="max-w-2xl opacity-80">Assisted in frontend development using React and modern CSS frameworks. Handled bug fixes and feature implementations under senior supervision.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full overflow-hidden" id="work" style="background-color: #F3E4C9; color: #0A2947;">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12">
+<span class="font-meta-technical text-meta-technical mb-4 block" style="color: #8B5E3C;">03 / SELECTED WORK</span>
+<h2 class="font-headline-md text-headline-md">Recent Projects</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="reveal-on-scroll project-card group cursor-pointer border p-6 rounded-DEFAULT open-modal-btn" data-project='{"title": "Enterprise Dashboard", "desc": "A comprehensive analytics dashboard processing real-time data for enterprise clients. Architected with performance and security in mind, utilizing advanced data visualization techniques.", "tags": ["React", "Node.js", "D3.js"], "cat": "DATA PLATFORM"}' style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.4);">
+<div class="w-full aspect-video bg-[#0A2947] mb-6 rounded-sm overflow-hidden relative flex items-center justify-center">
+<span class="font-display-lg text-4xl text-[#F3E4C9] opacity-50">Project Alpha</span>
+</div>
+<h3 class="font-headline-sm mb-2 group-hover:text-[#8B5E3C] transition-colors">Enterprise Dashboard</h3>
+<p class="opacity-80 mb-4">A comprehensive analytics dashboard processing real-time data for enterprise clients.</p>
+<div class="flex gap-2">
+<span class="font-meta-technical text-[12px] px-2 py-1 rounded bg-[#0A2947]/10">React</span>
+<span class="font-meta-technical text-[12px] px-2 py-1 rounded bg-[#0A2947]/10">Node.js</span>
+</div>
+</div>
+<div class="reveal-on-scroll project-card group cursor-pointer border p-6 rounded-DEFAULT open-modal-btn" data-project='{"title": "E-Commerce Platform", "desc": "A fully custom headless e-commerce solution with integrated payment gateways. Scalable backend architecture to handle high traffic and complex catalog requirements.", "tags": ["Vue", "Stripe", "GraphQL"], "cat": "COMMERCE"}' style="border-color: rgba(10, 41, 71, 0.1); background-color: rgba(255,255,255,0.4);">
+<div class="w-full aspect-video bg-[#D3D4C0] mb-6 rounded-sm overflow-hidden relative flex items-center justify-center">
+<span class="font-display-lg text-4xl text-[#0A2947] opacity-50">Project Beta</span>
+</div>
+<h3 class="font-headline-sm mb-2 group-hover:text-[#8B5E3C] transition-colors">E-Commerce Platform</h3>
+<p class="opacity-80 mb-4">A fully custom headless e-commerce solution with integrated payment gateways.</p>
+<div class="flex gap-2">
+<span class="font-meta-technical text-[12px] px-2 py-1 rounded bg-[#0A2947]/10">Vue</span>
+<span class="font-meta-technical text-[12px] px-2 py-1 rounded bg-[#0A2947]/10">Stripe</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop w-full overflow-hidden" id="contact" style="background-color: #0A2947; color: #F3E4C9;">
+<div class="max-w-container-max mx-auto text-center reveal-on-scroll flex flex-col items-center justify-center min-h-[50vh]">
+<span class="font-meta-technical text-meta-technical mb-4 block" style="color: #D3D4C0;">04 / CONTACT</span>
+<h2 class="font-display-lg-mobile md:font-display-lg mb-8 max-w-4xl mx-auto">Let's build something exceptional together.</h2>
+<p class="font-body-lg mb-10 opacity-80 max-w-2xl mx-auto">
+                Currently open for new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+<a class="font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT transition-all duration-300 inline-flex items-center gap-2 hover:opacity-90" href="mailto:hello@example.com" style="background-color: #F3E4C9; color: #0A2947;">
+                Say Hello <span class="material-symbols-outlined">send</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 border-t" style="background-color: #0A2947; border-color: rgba(243, 228, 201, 0.1); color: #F3E4C9;">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="font-label-caps text-label-caps mb-4 md:mb-0">EP.</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-meta-technical text-meta-technical hover:text-[#D3D4C0] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-meta-technical text-meta-technical hover:text-[#D3D4C0] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="font-meta-technical text-meta-technical hover:text-[#D3D4C0] transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Layers</a>
+<a class="font-meta-technical text-meta-technical hover:text-[#D3D4C0] transition-colors duration-300 opacity-80 hover:opacity-100" href="#contact">Email</a>
+</div>
+<div class="font-meta-technical text-[12px] opacity-50 mt-4 md:mt-0">
+                © 2024 Ernando Januar Pratama. All rights reserved. Built with precision.
+            </div>
+</div>
+</footer>
+<!-- Project Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 md:p-10" id="project-modal">
+<div class="absolute inset-0 bg-[#0A2947]/90 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modal-overlay"></div>
+<div class="relative w-full max-w-6xl max-h-[90vh] bg-[#F3E4C9] border rounded-DEFAULT shadow-2xl flex flex-col md:flex-row overflow-hidden transition-all duration-500 opacity-0 translate-y-8" id="modal-content" style="border-color: rgba(139, 94, 60, 0.4);">
+<button class="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-[#0A2947] text-[#F3E4C9] rounded-full hover:bg-[#8B5E3C] transition-colors border border-[#F3E4C9]/20 shadow-lg" id="close-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Carousel Area -->
+<div class="w-full md:w-3/5 bg-[#0A2947] relative border-b md:border-b-0 md:border-r flex items-center justify-center min-h-[300px] md:min-h-full" style="border-color: rgba(139, 94, 60, 0.4);">
+<div class="relative w-full h-full overflow-hidden group flex items-center bg-[#0A2947]/50">
+<img alt="Project Screenshot" class="w-full object-contain max-h-[60vh] md:max-h-[90vh] transition-opacity duration-300" id="modal-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCniPQM0bqZxnqr0zj7NP8oux-u5pSkafluQ1uiVF5WPVgkb2UON0Hj0nlOjvodSPX4HKMtP18WZddenxRVm2Yrfm_-rcNgfv93MzFthEivRwVB5a2oDnURGB4xLRrfja1UOfn36vm1kwtZvj2fN_S8SfjZnj0yiNva5YYg-5prljxGhf4yivkWTQGFLd5ywjiQ0PJjTRla0FIjjtKFeMb5bc7dnCUzuPOnkcEyJJzYJs2bMgfF-s36ng"/>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-[#F3E4C9]/10 hover:bg-[#F3E4C9]/30 text-[#F3E4C9] rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 border border-[#F3E4C9]/20" id="prev-slide">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-[#F3E4C9]/10 hover:bg-[#F3E4C9]/30 text-[#F3E4C9] rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 border border-[#F3E4C9]/20" id="next-slide">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="absolute top-4 left-4 border p-2 font-meta-technical text-[10px] text-[#F3E4C9]/90 backdrop-blur-md bg-[#0A2947]/80 flex items-center gap-2 rounded-sm" style="border-color: rgba(243, 228, 201, 0.2);">
+<div class="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]"></div>
+                VIEW: <span id="img-index">01/03</span>
+</div>
+</div>
+<!-- Details Area -->
+<div class="w-full md:w-2/5 p-8 md:p-12 flex flex-col overflow-y-auto bg-[#F3E4C9] text-[#0A2947] relative">
+<div class="absolute top-0 right-0 w-16 h-16 border-b border-l opacity-20 pointer-events-none" style="border-color: #0A2947;"></div>
+<div class="flex-grow">
+<span class="font-meta-technical text-[12px] mb-4 block tracking-widest uppercase" id="modal-category" style="color: #8B5E3C;">PROJECT SHOWCASE</span>
+<h2 class="font-headline-md text-headline-md mb-6 leading-tight" id="modal-title">Project Title</h2>
+<div class="border-t border-b py-6 mb-8" style="border-color: rgba(10, 41, 71, 0.1);">
+<p class="font-body-md text-body-md opacity-80 leading-relaxed" id="modal-desc">
+                        Project description will be inserted here. It highlights key architectural decisions and technical implementation details.
+                    </p>
+</div>
+<div class="mb-8">
+<h4 class="font-meta-technical text-[11px] tracking-widest mb-4 opacity-60 uppercase">Tech Stack</h4>
+<div class="flex flex-wrap gap-2" id="modal-tags">
+<!-- tags injected via JS -->
+</div>
+</div>
+</div>
+<div class="pt-6 mt-4">
+<a class="font-label-caps text-label-caps bg-[#0A2947] text-[#F3E4C9] px-8 py-4 text-center rounded-DEFAULT hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 w-full hover:shadow-lg hover:-translate-y-0.5" href="#">
+                    View Project <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('project-modal');
+        const overlay = document.getElementById('modal-overlay');
+        const content = document.getElementById('modal-content');
+        const closeBtn = document.getElementById('close-modal');
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+        
+        const images = [
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuCniPQM0bqZxnqr0zj7NP8oux-u5pSkafluQ1uiVF5WPVgkb2UON0Hj0nlOjvodSPX4HKMtP18WZddenxRVm2Yrfm_-rcNgfv93MzFthEivRwVB5a2oDnURGB4xLRrfja1UOfn36vm1kwtZvj2fN_S8SfjZnj0yiNva5YYg-5prljxGhf4yivkWTQGFLd5ywjiQ0PJjTRla0FIjjtKFeMb5bc7dnCUzuPOnkcEyJJzYJs2bMgfF-s36ng",
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAqmGzX5wwDl6ZfK4nX2Uu_GN-sPVSjG796Lf-kZ4JxuhUeJ-OoqTS8Ui5eK9_YYGHaMKJmK877n1H83hxPnoqVSOvGevcoNegkeFnOdZabQtgswD1sZLrAdpbHqkMbmgRwJik4XkHHbUPAcgDyioupoU2HuLRQihkHw_wMLYvROyfuCS0TcSq2e7ErFdIVGzE6NS5IAgI7Qb9-_ruczgbZzNVgnVbaN-x5n8BDj0dSCbL5hVmIMwM7dA",
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuCh4GOnARTr4XkNjhyB784IDMlUGR2w5MldAqj-pEy7-TW5V_D9OggplJrlBdLIDxUNtsY75xbaoNTPlg7M4hgBv15dKILQkLr9IWBYw7MrKJ3wMyrDdbE4vDq4fQdmV4eQdKK8Bh8KrhUebroGOkCWUbK6Bf-JWyBbTUWPqZBzOLGbFFpCuCGbzbYUvsyi4GugaWUAO8IfcsnY7j9eSHPB-O4qfRdDI53AV8J53fuRuPE4sDtwNTw8hg"
+        ];
+        let currentImgIndex = 0;
+        
+        const modalImg = document.getElementById('modal-image');
+        const imgIndexDisplay = document.getElementById('img-index');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+
+        function updateImage() {
+            modalImg.style.opacity = '0';
+            setTimeout(() => {
+                modalImg.src = images[currentImgIndex];
+                imgIndexDisplay.textContent = `0${currentImgIndex + 1}/0${images.length}`;
+                modalImg.style.opacity = '1';
+            }, 150);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
+            updateImage();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentImgIndex = (currentImgIndex + 1) % images.length;
+            updateImage();
+        });
+
+        function openModal(projectData) {
+            // Populate data
+            if(projectData) {
+                document.getElementById('modal-title').textContent = projectData.title;
+                document.getElementById('modal-desc').textContent = projectData.desc;
+                document.getElementById('modal-category').textContent = projectData.cat || 'SELECTED WORK';
+                
+                const tagsContainer = document.getElementById('modal-tags');
+                tagsContainer.innerHTML = '';
+                if(projectData.tags) {
+                    projectData.tags.forEach(tag => {
+                        const span = document.createElement('span');
+                        span.className = 'font-meta-technical text-[12px] px-3 py-1.5 rounded-sm border';
+                        span.style.borderColor = 'rgba(10, 41, 71, 0.15)';
+                        span.style.backgroundColor = 'rgba(10, 41, 71, 0.05)';
+                        span.textContent = tag;
+                        tagsContainer.appendChild(span);
+                    });
+                }
+            }
+
+            currentImgIndex = 0;
+            updateImage();
+
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('modal-open');
+            
+            // Trigger animations
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                content.classList.remove('opacity-0', 'translate-y-8');
+            }, 10);
+        }
+
+        function closeModal() {
+            overlay.classList.add('opacity-0');
+            content.classList.add('opacity-0', 'translate-y-8');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const data = JSON.parse(btn.getAttribute('data-project') || '{}');
+                openModal(data);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    });
+</script>
+</body></html>
