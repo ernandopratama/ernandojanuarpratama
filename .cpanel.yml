@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export APPPATH=/home/ernando2/ernando-portfolio-app
+    - export DEPLOYPATH=/home/ernando2/public_html
+    - /bin/mkdir -p $APPPATH
+    - /usr/bin/rsync -a --delete --exclude=public --exclude=.git --exclude=.env /home/ernando2/repositories/ernandojanuarpratama/ $APPPATH/
+    - /bin/cp -R /home/ernando2/repositories/ernandojanuarpratama/public/* $DEPLOYPATH/
+    - /bin/cp $APPPATH/public/.htaccess $DEPLOYPATH/.htaccess 2>/dev/null || true
+    - /bin/sed -i "s#__DIR__.'/../storage/framework/maintenance.php'#'$APPPATH/storage/framework/maintenance.php'#" $DEPLOYPATH/index.php
+    - /bin/sed -i "s#__DIR__.'/../vendor/autoload.php'#'$APPPATH/vendor/autoload.php'#" $DEPLOYPATH/index.php
+    - /bin/sed -i "s#__DIR__.'/../bootstrap/app.php'#'$APPPATH/bootstrap/app.php'#" $DEPLOYPATH/index.php
+    - /bin/chmod -R 775 $APPPATH/storage $APPPATH/bootstrap/cache
