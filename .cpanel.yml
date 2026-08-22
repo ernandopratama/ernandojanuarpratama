@@ -1,49 +1,105 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ernando2/public_html/
 
-    # ==========================================
-    # Laravel Application
-    # ==========================================
+    # ==========================================================
+    # PATH CONFIGURATION
+    # ==========================================================
 
-    - /bin/cp -R app $DEPLOYPATH
-    - /bin/cp -R bootstrap $DEPLOYPATH
-    - /bin/cp -R config $DEPLOYPATH
-    - /bin/cp -R database $DEPLOYPATH
-    - /bin/cp -R resources $DEPLOYPATH
-    - /bin/cp -R routes $DEPLOYPATH
-    - /bin/cp -R tests $DEPLOYPATH
+    - export REPOPATH=/home/ernando2/repositories/ernandojanuarpratama
+    - export APPPATH=/home/ernando2/ernando-portofolio
+    - export PUBLICPATH=/home/ernando2/public_html
 
-    # ==========================================
-    # Laravel Root Files
-    # ==========================================
+    # ==========================================================
+    # PREPARE DIRECTORIES
+    # ==========================================================
 
-    - /bin/cp artisan $DEPLOYPATH
-    - /bin/cp composer.json $DEPLOYPATH
-    - /bin/cp composer.lock $DEPLOYPATH
-    - /bin/cp package.json $DEPLOYPATH
-    - /bin/cp package-lock.json $DEPLOYPATH
-    - /bin/cp phpunit.xml $DEPLOYPATH
-    - /bin/cp vite.config.js $DEPLOYPATH
-    - /bin/cp README.md $DEPLOYPATH
+    - /bin/mkdir -p $APPPATH
+    - /bin/mkdir -p $PUBLICPATH
 
-    # ==========================================
-    # Public Files
+    # ==========================================================
+    # LARAVEL APPLICATION
+    # Source code stays OUTSIDE public_html
+    # ==========================================================
+
+    - /bin/cp -R $REPOPATH/app $APPPATH/
+    - /bin/cp -R $REPOPATH/bootstrap $APPPATH/
+    - /bin/cp -R $REPOPATH/config $APPPATH/
+    - /bin/cp -R $REPOPATH/database $APPPATH/
+    - /bin/cp -R $REPOPATH/resources $APPPATH/
+    - /bin/cp -R $REPOPATH/routes $APPPATH/
+
+    # ==========================================================
+    # LARAVEL ROOT FILES
+    # ==========================================================
+
+    - /bin/cp $REPOPATH/artisan $APPPATH/
+    - /bin/cp $REPOPATH/composer.json $APPPATH/
+    - /bin/cp $REPOPATH/composer.lock $APPPATH/
+    - /bin/cp $REPOPATH/package.json $APPPATH/
+    - /bin/cp $REPOPATH/package-lock.json $APPPATH/
+    - /bin/cp $REPOPATH/phpunit.xml $APPPATH/
+    - /bin/cp $REPOPATH/vite.config.js $APPPATH/
+    - /bin/cp $REPOPATH/README.md $APPPATH/
+
+    # ==========================================================
     # IMPORTANT:
-    # Do NOT copy public/storage (symlink)
-    # Do NOT copy public/build (compiled assets, upload manual after npm run build)
-    # ==========================================
+    # DO NOT COPY:
+    # - .env
+    # - storage
+    # - vendor
+    # - node_modules
+    #
+    # These are server-side / persistent files.
+    # ==========================================================
 
-    - /bin/mkdir -p $DEPLOYPATH/public
-    - /bin/cp public/.htaccess $DEPLOYPATH/public/
-    - /bin/cp public/index.php $DEPLOYPATH/public/
-    - /bin/cp public/robots.txt $DEPLOYPATH/public/
-    - /bin/cp public/favicon.ico $DEPLOYPATH/public/
-    - /bin/cp public/og-image.png $DEPLOYPATH/public/
+    # ==========================================================
+    # PUBLIC FILES
+    # Copy Laravel public directory directly to public_html
+    # ==========================================================
 
-    # ==========================================
-    # Permissions
-    # ==========================================
+    - /bin/cp $REPOPATH/public/.htaccess $PUBLICPATH/
+    - /bin/cp $REPOPATH/public/index.php $PUBLICPATH/
+    - /bin/cp $REPOPATH/public/robots.txt $PUBLICPATH/
+    - /bin/cp $REPOPATH/public/favicon.ico $PUBLICPATH/
+    - /bin/cp $REPOPATH/public/og-image.png $PUBLICPATH/
 
-    - /bin/chmod -R 775 $DEPLOYPATH/storage $DEPLOYPATH/bootstrap/cache
+    # ==========================================================
+    # BUILD FRONTEND ASSETS
+    # ==========================================================
+
+    - /bin/mkdir -p $APPPATH/public/build
+    - /bin/rm -rf $APPPATH/public/build/*
+    - /bin/cp -R $REPOPATH/public/build/* $APPPATH/public/build/
+
+    - /bin/mkdir -p $PUBLICPATH/build
+    - /bin/rm -rf $PUBLICPATH/build/*
+    - /bin/cp -R $REPOPATH/public/build/* $PUBLICPATH/build/
+
+    # ==========================================================
+    # COMPOSER
+    # ==========================================================
+
+    - cd $APPPATH && /usr/local/bin/ea-php83 /opt/cpanel/composer/bin/composer install --no-dev --optimize-autoloader --no-interaction
+
+    # ==========================================================
+    # LARAVEL CACHE
+    # ==========================================================
+
+    - cd $APPPATH && /usr/local/bin/ea-php83 artisan optimize:clear
+    - cd $APPPATH && /usr/local/bin/ea-php83 artisan config:cache
+    - cd $APPPATH && /usr/local/bin/ea-php83 artisan route:cache
+    - cd $APPPATH && /usr/local/bin/ea-php83 artisan view:cache
+
+    # ==========================================================
+    # STORAGE LINK
+    # ==========================================================
+
+    - cd $APPPATH && /usr/local/bin/ea-php83 artisan storage:link || true
+
+    # ==========================================================
+    # PERMISSIONS
+    # ==========================================================
+
+    - /bin/chmod -R 775 $APPPATH/storage
+    - /bin/chmod -R 775 $APPPATH/bootstrap/cache
