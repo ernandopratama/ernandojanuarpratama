@@ -68,6 +68,10 @@ deployment:
     # BUILD FRONTEND ASSETS
     # ==========================================================
 
+    - export NODEBIN=/home/ernando2/nodevenv/ernando-portofolio/20/bin
+    - cd $REPOPATH && $NODEBIN/npm ci
+    - cd $REPOPATH && $NODEBIN/npm run build
+
     - /bin/mkdir -p $APPPATH/public/build
     - /bin/rm -rf $APPPATH/public/build/*
     - /bin/cp -R $REPOPATH/public/build/* $APPPATH/public/build/
